@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import { useState, type CSSProperties, type ReactNode } from "react";
 
 type IconName =
   | "arrow"
@@ -7,6 +9,7 @@ type IconName =
   | "chevron"
   | "close"
   | "eye"
+  | "eye-off"
   | "lock"
   | "menu"
   | "pie"
@@ -14,7 +17,7 @@ type IconName =
   | "target";
 
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
-  const paths: Record<IconName, React.ReactNode> = {
+  const paths: Record<IconName, ReactNode> = {
     arrow: (
       <>
         <path d="M5 12h14" />
@@ -41,6 +44,13 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
       <>
         <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z" />
         <circle cx="12" cy="12" r="2.5" />
+      </>
+    ),
+    "eye-off": (
+      <>
+        <path d="M3 3 21 21" />
+        <path d="M10.6 6.2A10.5 10.5 0 0 1 12 6c6 0 9.5 6 9.5 6a16 16 0 0 1-3.1 3.8" />
+        <path d="M6.2 6.3C3.8 8 2.5 12 2.5 12s3.5 6 9.5 6c1.3 0 2.5-.3 3.5-.8" />
       </>
     ),
     lock: (
@@ -209,7 +219,7 @@ export default function App() {
                     onClick={() => setShowBalance(!showBalance)}
                     aria-label={showBalance ? "Hide balance" : "Show balance"}
                   >
-                    <Icon name="eye" size={18} />
+                    <Icon name={showBalance ? "eye" : "eye-off"} size={18} />
                   </button>
                 </div>
               </div>
@@ -421,7 +431,6 @@ export default function App() {
               <span>YOUR GOAL</span>
               <h3>Build my safety net</h3>
             </div>
-            <span className="calc-icon"><Icon name="target" /></span>
           </div>
           <label htmlFor="goal">Target amount <strong>{formatMoney(goal)}</strong></label>
           <input
@@ -432,7 +441,7 @@ export default function App() {
             step="1000"
             value={goal}
             onChange={(event) => setGoal(Number(event.target.value))}
-            style={{ "--range": `${((goal - 5000) / 45000) * 100}%` } as React.CSSProperties}
+            style={{ "--range": `${((goal - 5000) / 45000) * 100}%` } as CSSProperties}
           />
           <div className="range-labels"><span>$5k</span><span>$50k</span></div>
           <div className="calc-results">
@@ -440,7 +449,7 @@ export default function App() {
             <div><span>Time to goal</span><strong>3 years</strong></div>
           </div>
           <div className="projection">
-            <span><Icon name="spark" size={16} />Projected with 3.8% APY</span>
+            <span>Projected with 3.8% APY</span>
             <strong>{formatMoney(projected)}</strong>
             <small>starting with {formatMoney(saved)} already saved</small>
           </div>
@@ -448,7 +457,9 @@ export default function App() {
       </section>
 
       <section className="security section" id="security">
-        <div className="security-icon"><Icon name="lock" size={26} /></div>
+        <div className="security-icon">
+          <img src="/security-lock.png" alt="" />
+        </div>
         <div>
           <div className="section-kicker">PRIVATE BY DEFAULT</div>
           <h2>Your financial life<br />stays yours.</h2>

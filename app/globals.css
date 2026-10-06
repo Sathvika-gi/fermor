@@ -376,7 +376,7 @@ h1, h2, h3 {
 .floating-card {
   position: absolute;
   left: -55px;
-  bottom: 80px;
+  bottom: 40px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -386,6 +386,7 @@ h1, h2, h3 {
   background: white;
   color: var(--ink);
   box-shadow: 0 14px 35px rgba(47, 28, 62, 0.16);
+  translate: 0 24px;
   animation: float 4.5s ease-in-out infinite;
 }
 
@@ -516,6 +517,7 @@ h1, h2, h3 {
   padding: 28px;
   border: 1px solid #ded5e2;
   background: #f2ecf4;
+  box-shadow: 12px 12px 0 #e8dfec;
 }
 
 .cash-flow-head {
@@ -661,6 +663,7 @@ h1, h2, h3 {
   padding: 20px;
   background: white;
   border: 1px solid #e5dfe6;
+  box-shadow: 12px 12px 0 #e8dfec;
 }
 
 .next-step p { margin: 16px 0 3px; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
@@ -727,7 +730,8 @@ h1, h2, h3 {
   background: #faf8f3;
 }
 
-.security-icon { width: 56px; height: 56px; display: grid; place-items: center; border: 1px solid #9e8ca8; color: var(--purple); align-self: start; }
+.security-icon { width: 80px; height: 80px; display: grid; place-items: center; align-self: start; perspective: 420px; }
+.security-icon img { width: 108px; max-width: none; height: auto; transform: rotateY(-18deg) rotateX(5deg) rotateZ(-3deg); filter: hue-rotate(34deg) saturate(0.56) drop-shadow(5px 8px 8px rgba(91, 33, 182, 0.2)); }
 .security h2 { margin-top: 22px; font-size: clamp(40px, 4.5vw, 64px); }
 .security-copy { max-width: 480px; padding-bottom: 6px; }
 
@@ -771,7 +775,7 @@ footer {
   .hero { grid-template-columns: 1fr; }
   .hero-copy { min-height: 600px; }
   .hero-visual { padding: 70px 7%; }
-  .floating-card { left: 3%; bottom: 40px; }
+  .floating-card { left: 3%; bottom: 30px; }
   .features { grid-template-columns: 1fr; }
   .feature-large { grid-row: auto; min-height: 650px; }
   .planner { grid-template-columns: 1fr; }
@@ -791,7 +795,7 @@ footer {
   .hero-visual { padding: 50px 18px 90px; }
   .dashboard { padding: 23px 18px; }
   .chart-wrap svg { height: 140px; }
-  .floating-card { left: 28px; right: 28px; bottom: 25px; width: auto; }
+  .floating-card { left: 28px; right: 28px; bottom: 18px; width: auto; }
   .proof-strip { grid-template-columns: 1fr 1fr; padding: 0 20px; }
   .proof-strip div { min-height: 90px; border-bottom: 1px solid var(--line); }
   .proof-strip div:nth-child(3) { border-left: 1px solid var(--line); }

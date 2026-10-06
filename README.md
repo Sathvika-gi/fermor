@@ -1,6 +1,6 @@
 # Fermor Homepage
 
-A responsive homepage concept for Fermor, built with React, TypeScript, Vite, and Tailwind CSS.
+A responsive Fermor homepage built with Next.js, React, TypeScript, and Tailwind CSS.
 
 ## Getting started
 
