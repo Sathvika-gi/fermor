@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type CSSProperties, type ReactNode } from "react";
+import Image from "next/image";
+import securityLock from "./assets/security-lock.png";
 
 type IconName =
   | "arrow"
@@ -458,7 +460,7 @@ export default function App() {
 
       <section className="security section" id="security">
         <div className="security-icon">
-          <img src="/security-lock.png" alt="" />
+          <Image src={securityLock} alt="" />
         </div>
         <div>
           <div className="section-kicker">PRIVATE BY DEFAULT</div>
