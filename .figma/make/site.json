@@ -1,0 +1,10 @@
+{
+  "description": "This financial platform simplifies money management, offering users a clear and interactive homepage to understand and grow their finances effectively.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
